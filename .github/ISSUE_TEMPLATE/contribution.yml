@@ -24,7 +24,7 @@ body:
         - Documentation
     validations:
       required: true
-  
+
   - type: textarea
     id: description
     attributes:
@@ -33,7 +33,7 @@ body:
       placeholder: Que fait votre script/exemple/configuration ?
     validations:
       required: true
-  
+
   - type: textarea
     id: usage
     attributes:
