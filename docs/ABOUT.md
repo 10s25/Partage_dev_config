@@ -20,16 +20,19 @@ La documentation complète est disponible [dans le wiki](https://github.com/10s2
 ## 🛠️ Technologies
 
 ### Développement Web
+
 - Sites responsive et accessibles
 - Performance optimisée
 - Sécurité renforcée
 
 ### Automatisation
+
 - Déploiement continu
 - Tests automatiques
 - Monitoring en temps réel
 
 ### Collaboration
+
 - Workflows GitHub Actions
 - Code review automatique
 - Documentation générée
@@ -51,4 +54,4 @@ La documentation complète est disponible [dans le wiki](https://github.com/10s2
 ---
 
 **Ensemble, construisons les outils numériques du changement**  
-*Collectif Indignons-nous bloquons tout - 10 septembre 2025*
+_Collectif Indignons-nous bloquons tout - 10 septembre 2025_
