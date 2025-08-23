@@ -9,6 +9,7 @@ Espace collaboratif de l'équipe Indignons-nous pour échanger projets, scripts 
 ## 🎯 Objectif
 
 Cet espace collectif permet à l'équipe de :
+
 - Partager les outils et scripts de développement
 - Échanger les configurations d'environnement optimisées
 - Collaborer sur des projets communs
@@ -75,6 +76,7 @@ Ce projet est sous licence [AGPL-3.0](LICENSE) - voir le fichier LICENSE pour pl
 ## 🔧 Maintenance automatique
 
 Ce dépôt utilise GitHub Actions pour :
+
 - Tests automatiques des contributions
 - Mise à jour des dépendances
 - Validation de la structure des fichiers
@@ -82,4 +84,4 @@ Ce dépôt utilise GitHub Actions pour :
 ---
 
 **Indignons-nous bloquons tout - 10 septembre 2025**  
-*Partageons nos outils et construisons ensemble !*
+_Partageons nos outils et construisons ensemble !_
