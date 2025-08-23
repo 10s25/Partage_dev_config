@@ -2,10 +2,8 @@ name: Génération README automatique
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Toutes les 6h au lieu de chaque push
+    - cron: '0 */6 * * *'  # Toutes les 6h
   workflow_dispatch:  # Manuel si besoin
-  schedule:
-    - cron: '0 2 * * *'
 
 permissions:
   contents: write
