@@ -9,6 +9,7 @@ Espace collaboratif de l'équipe Indignons-nous pour échanger projets, scripts 
 ## 🎯 Objectif
 
 Cet espace collectif permet à l'équipe de :
+
 - Partager les outils et scripts de développement
 - Échanger les configurations d'environnement optimisées
 - Collaborer sur des projets communs
@@ -50,6 +51,7 @@ collectif-indignons-nous/
 ## 🤝 Comment contribuer
 
 ### 📋 Étape 1 : Créer une Issue (OBLIGATOIRE)
+
 1. **Allez** dans l'onglet Issues
 2. **Cliquez** "New issue"
 3. **Choisissez** un template :
@@ -59,12 +61,14 @@ collectif-indignons-nous/
 5. **Attendez** validation/discussion de l'équipe
 
 ### 🔧 Étape 2 : Développement
+
 6. **Fork** ce dépôt
 7. **Clone** votre fork localement
 8. **Créez** une branche pour votre contribution
 9. **Développez** selon les spécifications de l'Issue
 
 ### 🚀 Étape 3 : Pull Request
+
 10. **Ajoutez** vos fichiers dans le dossier approprié
 11. **Commitez** avec un message descriptif
 12. **Poussez** vers votre fork
@@ -88,6 +92,7 @@ Ce projet est sous licence [AGPL-3.0](LICENSE) - voir le fichier LICENSE pour pl
 ## 🔧 Maintenance automatique
 
 Ce dépôt utilise GitHub Actions pour :
+
 - Tests automatiques des contributions
 - Mise à jour des dépendances
 - Validation de la structure des fichiers
@@ -95,4 +100,4 @@ Ce dépôt utilise GitHub Actions pour :
 ---
 
 **Indignons-nous bloquons tout - 10 septembre 2025**  
-*Partageons nos outils et construisons ensemble !*
+_Partageons nos outils et construisons ensemble !_

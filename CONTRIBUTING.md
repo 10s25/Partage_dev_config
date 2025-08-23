@@ -15,21 +15,25 @@ Merci de votre intérêt pour contribuer à Partage Dev ! Ce guide vous aidera �
 ## 📁 Organisation des contributions
 
 ### Scripts (`scripts/`)
+
 - Placez vos scripts dans des sous-dossiers par langage ou usage
 - Incluez un README.md expliquant l'utilisation
 - Exemple : `scripts/python/backup-automation/`
 
 ### Exemples (`examples/`)
+
 - Projets complets avec structure claire
 - Documentation d'installation et d'utilisation
 - Exemple : `examples/react-typescript-starter/`
 
 ### Configurations (`configs/`)
+
 - Fichiers de configuration d'outils de développement
 - Organisés par outil ou environnement
 - Exemple : `configs/vscode/`, `configs/docker/`
 
 ### Documentation (`docs/`)
+
 - Guides techniques et tutoriels
 - Format Markdown recommandé
 - Exemple : `docs/git-workflows.md`
@@ -37,16 +41,19 @@ Merci de votre intérêt pour contribuer à Partage Dev ! Ce guide vous aidera �
 ## ✅ Standards de qualité
 
 ### Code
+
 - Code propre et commenté
 - Respect des conventions du langage
 - Tests inclus si applicable
 
 ### Documentation
+
 - README.md obligatoire pour chaque contribution
 - Instructions d'installation claires
 - Exemples d'utilisation
 
 ### Commits
+
 - Format : `type: description courte`
 - Types : `feat`, `fix`, `docs`, `config`, `script`
 

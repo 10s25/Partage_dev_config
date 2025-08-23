@@ -23,7 +23,7 @@ body:
         - Configuration
     validations:
       required: true
-  
+
   - type: input
     id: project_name
     attributes:
@@ -32,7 +32,7 @@ body:
       placeholder: mon-super-projet
     validations:
       required: true
-  
+
   - type: textarea
     id: description
     attributes:
@@ -41,7 +41,7 @@ body:
       placeholder: Ce projet permet de...
     validations:
       required: true
-  
+
   - type: checkboxes
     id: confirmation
     attributes:
