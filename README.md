@@ -1,85 +1,111 @@
 # Collectif Indignons-nous bloquons tout
 
-<img src="https://indignonsnous.fr/global/img/logo-inbt.svg" alt="Logo Indignons-nous" width="200">
+<image source="https://indignonsnous.fr/global/img/logo-inbt.svg" autre="Logo Indignons-nous" largeur="200">
 
 **Bienvenue sur l'espace collectif du 10 septembre 2025**
 
-Espace collaboratif de l'équipe Indignons-nous pour échanger projets, scripts et configurations de développement.
+Espace collaboratif Indignons-nous bloquons tout pour changer projets, scripts et configurations de développement.
 
 ## 🎯 Objectif
 
 Cet espace collectif permet à l'équipe de :
-- Partager les outils et scripts de développement
+- Participer les outils et scripts de développement
 - Échanger les configurations d'environnement optimisées
-- Collaborer sur des projets communs
+- Collaborateur sur des projets communs
 - Co-construire les bonnes pratiques de l'équipe
 
 ## 📁 Structure
 
 ```
 collectif-indignons-nous/
-├── README.md       # Documentation principale
+├── README.md # Principe de documentation
 ├── CONTRIBUTING.md # Guide de contribution
-├── LICENSE         # Licence AGPL-3.0
-├── docs/           # Documentation collective et guides techniques
-├── scripts/        # Scripts et outils partagés
-│   ├── python/     # Scripts Python
-│   ├── bash/       # Scripts Bash
-│   ├── javascript/ # Scripts JavaScript
-│   ├── php/        # Scripts PHP
-│   ├── go/         # Scripts Go
-│   ├── rust/       # Scripts Rust
-│   ├── java/       # Scripts Java
-│   ├── csharp/     # Scripts C#
-│   └── automation/ # Scripts d'automatisation
-├── examples/       # Projets de référence et templates
-│   ├── web/        # Exemples web
-│   ├── api/        # Exemples API
-│   ├── mobile/     # Exemples mobile
-│   └── desktop/    # Exemples desktop
-├── configs/        # Configurations échangées
-│   ├── vscode/     # Configuration VS Code
-│   ├── docker/     # Configuration Docker
-│   ├── ci-cd/      # Configuration CI/CD
-│   └── dotfiles/   # Fichiers de configuration
-└── .github/        # Automatisations et workflows
-    ├── workflows/  # GitHub Actions
-    └── ISSUE_TEMPLATE/ # Templates d'issues
+├── LICENCE # Licence AGPL-3.0
+├── docs/ # Documentation collective et guides techniques
+├── scripts/ # Scripts et outils partis
+│ ├── python/ # Scripts Python
+│ ├── bash/ # Scripts Bash
+│ ├── javascript/ # Scripts JavaScript
+│ ├── php/ # Scripts PHP
+│ ├── go/ # Scripts Go
+│ ├── rouille/ # Scripts Rouille
+│ ├── java/ # Scripts Java
+│ ├── csharp/ # Scripts C#
+│ └── automatisation/ # Scripts d'automatisation
+├── exemples/ # Projets de référence et modèles
+│ ├── web/ # Exemples web
+│ ├── api/ # Exemples d'API
+│ ├── mobile/ # Exemples de mobiles
+│ └── bureau/ # Exemples bureau
+├── configs/ # Configurations échangées
+│ ├── vscode/ # Configuration VS Code
+│ ├── docker/ # Configuration Docker
+│ ├── ci-cd/ # Configuration CI/CD
+│ └── dotfiles/ # Fichiers de configuration
+└── .github/ # Automatisations et workflows
+ ├── flux de travail/ # Actions GitHub
+ └── ISSUE_TEMPLATE/ # Modèles d'émissions
 ```
 
-## 🤝 Comment contribuer
+## 🤝 Contributeur de commentaires
 
-1. **Fork** ce dépôt
-2. **Clone** votre fork localement
-3. **Créez** une branche pour votre contribution
-4. **Ajoutez** vos fichiers dans le dossier approprié
-5. **Commitez** avec un message descriptif
-6. **Poussez** vers votre fork
-7. **Ouvrez** une Pull Request
+### 📋 Bande 1 : Créer une Issue (OBLIGATOIRE)
+1. **Allez** Questions dans l'onglet
+2. **Cliquez** "Nouveau numéro"
+3. **Choisissez** un modèle :
+   - « Nouvelle contribution » pour proposer un script/config
+   - "Demande de création de projet" pour un nouveau projet
+4. **Remplissage** le formule-guide
+5. **Attendez** validation/discussion de l'équipe
 
-Consultez [CONTRIBUTING.md](CONTRIBUTING.md) pour plus de détails.
+### 🔧 Étape 2 : Développement
+6. **Fourchette** ce dépôt
+7. **Cloneur** localisation de la fourche de vote
+8. **Créez** une branche pour votre contribution
+9. **Développez** selon les spécifications de l'Issue
+
+### 🚀 Étape 3 : Pull Request
+10. **Ajoutez** vos fichers dans le dossier approprié
+11. **Commitez** avec un message descriptif
+12. **Poussez** vote fourchette vers
+13. **Ouvrez** une Pull Request en référençant l'Issue
+
+Consultez [CONTRIBUANT.md](CONTRIBUANT.md) verser plus de détails.
 
 ## 📋 Types de contributions acceptées
 
 - Scripts d'automatisation
 - Configurations d'IDE et d'outils
-- Templates de projets
-- Documentation technique
+- Modèles de projets
+- Technique de documentation
 - Outils de développement
 - Exemples de code
 
-## 📄 License
+## 📄 Licence
 
-Ce projet est sous licence [AGPL-3.0](LICENSE) - voir le fichier LICENSE pour plus de détails.
+Ce projet est sous licence [AGPL-3.0](LICENCE) - voir le fichier LICENCE pour plus de détails.
 
 ## 🔧 Maintenance automatique
 
 Ce dépôt utilise GitHub Actions pour :
 - Tests automatiques des contributions
 - Mise à jour des dépendances
-- Validation de la structure des fichiers
+- Validation de la structure des fichers
+
+### ⚠️ Configuration requise pour les automatisations
+
+Si vous rencontrez l'erreur `Erreur : Entrée requise et non fournie : jeton`, cela signifie que le jeton d'organisation n'est pas configuré.
+
+**Pour l'administrateur de l'organisation :**
+- Consultez le guide complet : [Configuration des jetons](docs/CONFIGURATION_TOKENS.md)
+- Configurez le secret `PAT_TOKEN` au niveau de l'organisation
+
+**Pour les contributeurs :**
+- Les automatisations fonctionneront automatisation une fois le token configuré
+- L'action Aucune requiert de votre part
 
 ---
 
-**Équipe Indignons-nous - 10 septembre 2025**  
-*Partageons nos outils et construisons ensemble !*
+**Indignons-nous bloquons tout - 10 septembre 2025**  
+*Partigeons nos outils et constructions ensemble !*
+

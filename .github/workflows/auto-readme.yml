@@ -1,49 +1,93 @@
 name: Génération README automatique
 
 on:
-  push:
-    branches: [main]
   schedule:
-    - cron: '0 2 * * *'
+    - cron: "0 */6 * * *" # Toutes les 6h au lieu de chaque push
+    - cron: "0 2 * * *"
+
 
 permissions:
   contents: write
+  pull-requests: write
+  issues: write
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Générer index des contributions
-      run: |
-        cat > INDEX.md << EOF
-        # Index des Contributions
-        
-        *Généré automatiquement le $(date)*
-        
-        ## 📊 Statistiques
-        - Scripts: $(find scripts -name "*.py" -o -name "*.sh" -o -name "*.js" | wc -l)
-        - Exemples: $(find examples -mindepth 2 -name "README.md" | wc -l)
-        - Configurations: $(find configs -name "*" -type f | wc -l)
-        
-        ## 🐍 Scripts Python
-        EOF
-        
-        find scripts/python -name "*.py" -exec basename {} \; | sort >> INDEX.md
-        
-        echo -e "\n## 🔧 Scripts Bash" >> INDEX.md
-        find scripts/bash -name "*.sh" -exec basename {} \; | sort >> INDEX.md
-        
-        echo -e "\n## ⚙️ Automatisation" >> INDEX.md
-        find scripts/automation -name "*" -type f -exec basename {} \; | sort >> INDEX.md
-    
-    - name: Commit et push INDEX.md
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add INDEX.md
-        if ! git diff --staged --quiet; then
-          git commit -m "docs: mise à jour automatique de l'index [skip ci]"
-          git push || echo "Push échoué - permissions insuffisantes"
-        fi
+      - uses: actions/checkout@v4
+
+      - name: Générer index des contributions
+        run: |
+          cat > INDEX.md << EOF
+          # Index des Contributions
+
+          *Généré automatiquement le $(date)*
+
+          ## 📊 Statistiques
+          - Scripts: $(find scripts -name "*.py" -o -name "*.sh" -o -name "*.js" | wc -l)
+          - Exemples: $(find examples -mindepth 2 -name "README.md" | wc -l)
+          - Configurations: $(find configs -name "*" -type f | wc -l)
+
+          ## 🐍 Scripts Python
+          EOF
+
+          find scripts/python -name "*.py" -exec basename {} \; | sort >> INDEX.md
+
+          echo -e "\n## 🔧 Scripts Bash" >> INDEX.md
+          find scripts/bash -name "*.sh" -exec basename {} \; | sort >> INDEX.md
+
+          echo -e "\n## ⚙️ Automatisation" >> INDEX.md
+          find scripts/automation -name "*" -type f -exec basename {} \; | sort >> INDEX.md
+
+      - name: Commit et push INDEX.md
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          # Pull des derniers changements pour éviter conflits
+          git pull origin main || true
+
+          # Regénérer INDEX.md avec les derniers chiffres
+          cat > INDEX.md << EOF
+          # Index des Contributions
+
+          *Généré automatiquement le $(date)*
+
+          ## 📊 Statistiques
+          - Scripts: $(find scripts -name "*.py" -o -name "*.sh" -o -name "*.js" | wc -l)
+          - Exemples: $(find examples -mindepth 2 -name "README.md" | wc -l)
+          - Configurations: $(find configs -name "*" -type f | wc -l)
+
+          ## 🐍 Scripts Python
+          $(find scripts/python -name "*.py" -exec basename {} \; | grep -v __pycache__ | sort)
+
+          ## 🔧 Scripts Bash
+          $(find scripts/bash -name "*.sh" -exec basename {} \; | sort)
+
+          ## ⚙️ Automatisation
+          README.md
+          EOF
+
+          git add INDEX.md
+          if ! git diff --staged --quiet; then
+            git commit -m "docs: mise à jour automatique de l'index [skip ci]"
+            git push || echo "Push échoué - permissions insuffisantes"
+            echo "README_UPDATED=true" >> $GITHUB_ENV
+          fi
+
+      - name: Créer commentaire de notification
+        if: env.README_UPDATED == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Créer un issue pour notifier de la mise à jour
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '📊 Index automatiquement mis à jour',
+              body: `L'index des contributions a été mis à jour automatiquement le ${new Date().toLocaleString('fr-FR')}.
+              
+              Consultez le fichier [INDEX.md](./INDEX.md) pour voir les dernières statistiques.`,
+              labels: ['documentation', 'automated']
+            });
