@@ -1,14 +1,15 @@
 # Collectif Indignons-nous bloquons tout
 
-<image source="https://indignonsnous.fr/global/img/logo-inbt.svg" autre="Logo Indignons-nous" largeur="200">
+<img src="https://indignonsnous.fr/global/img/logo-inbt.svg" alt="Logo Indignons-nous" width="200">
 
 **Bienvenue sur l'espace collectif du 10 septembre 2025**
 
-Espace collaboratif Indignons-nous bloquons tout pour changer projets, scripts et configurations de développement.
+Espace collaboratif Indignons-nous bloquons tout pour échanger projets, scripts et configurations de développement.
 
 ## 🎯 Objectif
 
 Cet espace collectif permet à l'équipe de :
+
 - Participer les outils et scripts de développement
 - Échanger les configurations d'environnement optimisées
 - Collaborateur sur des projets communs
@@ -50,6 +51,7 @@ collectif-indignons-nous/
 ## 🤝 Contributeur de commentaires
 
 ### 📋 Bande 1 : Créer une Issue (OBLIGATOIRE)
+
 1. **Allez** Questions dans l'onglet
 2. **Cliquez** "Nouveau numéro"
 3. **Choisissez** un modèle :
@@ -59,15 +61,17 @@ collectif-indignons-nous/
 5. **Attendez** validation/discussion de l'équipe
 
 ### 🔧 Étape 2 : Développement
+
 6. **Fourchette** ce dépôt
 7. **Cloneur** localisation de la fourche de vote
 8. **Créez** une branche pour votre contribution
 9. **Développez** selon les spécifications de l'Issue
 
 ### 🚀 Étape 3 : Pull Request
+
 10. **Ajoutez** vos fichers dans le dossier approprié
 11. **Commitez** avec un message descriptif
-12. **Poussez** vote fourchette vers
+12. **Poussez** fourchette d'électeur vers
 13. **Ouvrez** une Pull Request en référençant l'Issue
 
 Consultez [CONTRIBUANT.md](CONTRIBUANT.md) verser plus de détails.
@@ -88,24 +92,43 @@ Ce projet est sous licence [AGPL-3.0](LICENCE) - voir le fichier LICENCE pour pl
 ## 🔧 Maintenance automatique
 
 Ce dépôt utilise GitHub Actions pour :
+
 - Tests automatiques des contributions
 - Mise à jour des dépendances
 - Validation de la structure des fichers
+
+### 🧹 Scripts de purge Actions GitHub
+
+Pour réseau l'historique des workflow runs :
+
+```bash
+# Authentification GitHub CLI (une seule fois)
+connexion à l'authentification gh
+
+# Script simple et efficace - TESTÉ ✅
+. . . . . . . . . . ./scripts/purge-simple.sh
+```
+
+**Autres options disponibles :**
+- `scripts/purge_github_actions.py` - Script Python avancé avec filtres
+- `scripts/purge-github-actions.sh` - API de jeton avec script Bash
+- Voir `scripts/README_purge_actions.md` pour la documentation complète
 
 ### ⚠️ Configuration requise pour les automatisations
 
 Si vous rencontrez l'erreur `Erreur : Entrée requise et non fournie : jeton`, cela signifie que le jeton d'organisation n'est pas configuré.
 
 **Pour l'administrateur de l'organisation :**
+
 - Consultez le guide complet : [Configuration des jetons](docs/CONFIGURATION_TOKENS.md)
 - Configurez le secret `PAT_TOKEN` au niveau de l'organisation
 
 **Pour les contributeurs :**
+
 - Les automatisations fonctionneront automatisation une fois le token configuré
-- L'action Aucune requiert de votre part
+- L'action Aucune demande de votre part
 
 ---
 
 **Indignons-nous bloquons tout - 10 septembre 2025**  
-*Partigeons nos outils et constructions ensemble !*
-
+_Partigeons nos outils et constructions ensemble !_
