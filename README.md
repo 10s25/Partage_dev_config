@@ -109,11 +109,6 @@ gh auth login
 ./scripts/purge-simple.sh
 ```
 
-**Autres options disponibles :**
-- `scripts/purge_github_actions.py` - Script Python avancé avec filtres
-- `scripts/purge-github-actions.sh` - API de jeton avec script Bash
-- Voir `scripts/README_purge_actions.md` pour la documentation complète
-
 ### ⚠️ Configuration requise pour les automatisations
 
 Si vous rencontrez l'erreur `Erreur : Entrée requise et non fournie : jeton`, cela signifie que le jeton d'organisation n'est pas configuré.
