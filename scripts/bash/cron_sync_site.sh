@@ -16,22 +16,21 @@ export LATEST_RELEASE_DIRNAME="site-last"
 
 # sync
 cd ${WEB_DIR}
-rm -f last.tar*
+rm -f last.tar.gz
 wget ${LATEST_RELEASE_SRC} 2> /dev/null
 tar -xf last.tar.gz
 if [ "$?" -eq 0 ]; then
     # the fetch and untar where successful
-    diff ${LATEST_RELEASE_DIRNAME} ${SITE_DIRNAME} 1> /dev/null
-    if [ "$?" -eq 0 ]; then
-        # No change in lasted release
-        rm -rf ${LATEST_RELEASE_DIRNAME}
-    else
+    diff -r ${LATEST_RELEASE_DIRNAME} ${SITE_DIRNAME} 1> /dev/null
+    if [ "$?" -ne 0 ]; then
         # New changes detected, replace the site directory with latest
         rm -rf ${SITE_DIRNAME}.save
         mv ${SITE_DIRNAME} ${SITE_DIRNAME}.save
         mv ${LATEST_RELEASE_DIRNAME} ${SITE_DIRNAME}
         chown -R www-data:www-data ${SITE_DIRNAME}
     fi
+    rm -rf ${LATEST_RELEASE_DIRNAME}
+    rm -f last.tar.gz
 else
     echo "ERROR: fails to download the lasted release"
     exit 1
