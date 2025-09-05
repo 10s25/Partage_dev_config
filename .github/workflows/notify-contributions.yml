@@ -4,41 +4,6 @@ sur:
  pull_request:
  types: [ouvert]
  problèmes:
- types de caractères: [ouvert]
-
-emplois:
- notificateur:
- se déchaîne: Ubuntu-dernier
- cassettes:
-    - nom: Ajouter message de bienvenue
- si: github.event_name == 'pull_request'
- utilisations: actions/github-script@v7
- avec:
- jeton github: ${{ secrets.GITHUB_TOKEN }}
- script: |
- essaiez {
- attendez github.rest.issues.createComment({
- numéro_problématique : contexte.problématique.numéro,
- propriétaire : contexte.repo.propriétaire,
- dépôt : contexte.repo.repo,
- corps : `👋 Merci @${{ github.acteur }} pour votre contribution !
-              
- Votre PR sera automatisé :
- - ✅ Testé et validé
- - 🏷️ Catégorisée avec des étiquettes
- - 👥 Affectée à des experts réviseurs
- - 🔄 Mergée si entreprise et tests passés
-              
- 📖 Consultez le [guide de contribution](CONTRIBUTING.md) verser plus d'infos.`
- });
- } attrapeur (erreur) {
- console.log('Création commentaire échouée:', erreur.message);
- }nom: Notifications nouvelles contributions
-
-sur:
- pull_request:
- types: [ouvert]
- problèmes:
  types: [ouvert]
 
 emplois:
@@ -56,7 +21,7 @@ emplois:
  numéro_problématique : contexte.problématique.numéro,
  propriétaire : contexte.repo.propriétaire,
  dépôt : contexte.repo.repo,
- corps : `👋 Merci @${{ github.acteur }} pour votre contribution !
+ corps : `👋 Merci @${contexte.acteur} pour votre contribution !
                 
  Votre PR sera automatisé :
  - ✅ Testé et validé
