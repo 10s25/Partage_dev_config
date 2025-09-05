@@ -1,28 +1,34 @@
-nom: Notifications nouvelles contributions
+name: Notifications nouvelles contributions
 
-sur:
- pull_request:
- types: [ouvert]
- problèmes:
- types: [ouvert]
+on:
+  pull_request:
+    types: [opened]
+  issues:
+    types: [opened]
 
-emplois:
- notifier:
- se déchaîne: Ubuntu-dernier
- étapes:
-      - nom: Ajouter message de bienvenue
- si: github.event_name == 'pull_request'
- utilisations: actions/github-script@v7
- avec:
- jeton github: ${{ secrets.PAT_TOKEN }}
- script: |
- essayez {
- attendez github.rest.issues.createComment({
- numéro_problème : contexte.problème.numéro,
- propriétaire : context.repo.owner,
- repo : contexte.repo.repo,
- corps : "👋 Merci @" + context.actor + " pour votre contribution !\n\nVotre PR sera automatisation :\n- ✅ Testé et validé\n- 🏷️ Catégorisée avec des labels\n- 👥 Affectée à des experts réviseurs\n- 🔄 Mergée si entreprise et tests passés\n\n📖 Consultez le [guide de contribution](CONTRIBUTING.md) pour plus d'infos."
- });
- } catch (erreur) {
- console.log('Création commentaire échouée:', error.message);
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ajouter message de bienvenue
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PAT_TOKEN }}
+          script: |
+            try {
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: "👋 Merci @" + context.actor + " pour votre contribution !\n\n" +
+                      "Votre PR sera automatiquement :\n" +
+                      "- ✅ Testée et validée\n" +
+                      "- 🏷️ Catégorisée avec des labels\n" +
+                      "- 👥 Assignée à des reviewers experts\n" +
+                      "- 🔄 Mergée si approuvée et tests passés\n\n" +
+                      "📖 Consultez le [guide de contribution](CONTRIBUTING.md) pour plus d'infos."
+              });
+            } catch (error) {
+              console.log('Création commentaire échouée:', error.message);
             }
