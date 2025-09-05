@@ -97,16 +97,16 @@ Ce dépôt utilise GitHub Actions pour :
 - Mise à jour des dépendances
 - Validation de la structure des fichers
 
-### 🧹 Scripts de purge Actions GitHub
+### 🧹 Scripts de purge GitHub Actions
 
-Pour réseau l'historique des workflow runs :
+Pour nettoyer l'historique des workflow runs :
 
 ```bash
 # Authentification GitHub CLI (une seule fois)
-connexion à l'authentification gh
+gh auth login
 
 # Script simple et efficace - TESTÉ ✅
-. . . . . . . . . . ./scripts/purge-simple.sh
+./scripts/purge-simple.sh
 ```
 
 **Autres options disponibles :**
