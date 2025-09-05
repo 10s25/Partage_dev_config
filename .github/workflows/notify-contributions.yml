@@ -4,25 +4,25 @@ sur:
  pull_request:
  types: [ouvert]
  problèmes:
- typestypes: [ouvert]
+ types: [ouvert]
 
 emplois:
- notificateur:
+ notifier:
  se déchaîne: Ubuntu-dernier
- cassettes:
+ étapes:
       - nom: Ajouter message de bienvenue
  si: github.event_name == 'pull_request'
  utilisations: actions/github-script@v7
  avec:
  jeton github: ${{ secrets.PAT_TOKEN }}
  script: |
- essaiez {
+ essayez {
  attendez github.rest.issues.createComment({
- numéro_problématique : contexte.problématique.numéro,
- propriétaire : contexte.repo.propriétaire,
- dépôt : contexte.repo.repo,
- corps : '👋 Merci @' + contexte.acteur + ' pour votre contribution !\n\nVotre PR sera automatisation :\n- ✅ Testé et validé\n- 🏷️ Catégorisée avec des labels\n- 👥 Affectée à des experts réviseurs\n- 🔄 Mergée si entreprise et tests passés\n\n📖 Consultez le [guide de contribution](CONTRIBUTING.md) pour plus d\'infos.'
+ numéro_problème : contexte.problème.numéro,
+ propriétaire : context.repo.owner,
+ repo : contexte.repo.repo,
+ corps : "👋 Merci @" + context.actor + " pour votre contribution !\n\nVotre PR sera automatisation :\n- ✅ Testé et validé\n- 🏷️ Catégorisée avec des labels\n- 👥 Affectée à des experts réviseurs\n- 🔄 Mergée si entreprise et tests passés\n\n📖 Consultez le [guide de contribution](CONTRIBUTING.md) pour plus d'infos."
  });
- } attrapeur (erreur) {
- console.log('Création commentaire échouée:', erreur.message);
+ } catch (erreur) {
+ console.log('Création commentaire échouée:', error.message);
             }
